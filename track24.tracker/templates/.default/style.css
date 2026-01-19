@@ -1,0 +1,196 @@
+/* Track24 Tracker Styles */
+
+.track24-tracker {
+    padding: 40px 0;
+}
+
+.track24-tracker__header {
+    margin-bottom: 30px;
+}
+
+.track24-tracker__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.track24-tracker__form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.track24-tracker__form .form-group {
+    margin-bottom: 20px;
+}
+
+.track24-tracker__form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.track24-tracker__form .form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.track24-tracker__form .form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.track24-tracker__info,
+.track24-tracker__stats,
+.track24-tracker__events {
+    margin-bottom: 30px;
+}
+
+.track24-tracker__info table,
+.track24-tracker__stats table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.track24-tracker__info h3,
+.track24-tracker__stats h3,
+.track24-tracker__events h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Timeline styles */
+.timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e0e0e0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -34px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #007bff;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #007bff;
+}
+
+.timeline-content {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px 20px;
+}
+
+.timeline-date {
+    color: #007bff;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.timeline-type {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.timeline-attribute {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.timeline-service {
+    margin-top: 8px;
+}
+
+.track24-tracker__action {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Alerts */
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Table styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+    padding: 12px 15px;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.table td mark {
+    background-color: #fff3cd;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.text-muted {
+    color: #6c757d;
+}
