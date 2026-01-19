@@ -16,8 +16,8 @@
 }
 
 .track24-tracker__form {
-    max-width: 600px;
-    margin: 0 auto;
+
+
     padding: 30px;
     background: #f8f9fa;
     border-radius: 8px;
@@ -102,6 +102,31 @@
     box-shadow: 0 0 0 2px #007bff;
 }
 
+.timeline-marker--delivered {
+    background: #28a745;
+    box-shadow: 0 0 0 2px #28a745;
+}
+
+.timeline-marker--awaiting {
+    background: #ffc107;
+    box-shadow: 0 0 0 2px #ffc107;
+}
+
+.timeline-marker--customs-complete {
+    background: #17a2b8;
+    box-shadow: 0 0 0 2px #17a2b8;
+}
+
+.timeline-marker--accepted {
+    background: #6f42c1;
+    box-shadow: 0 0 0 2px #6f42c1;
+}
+
+.timeline-marker--arrived-at-sorting-center {
+    background: #fd7e14;
+    box-shadow: 0 0 0 2px #fd7e14;
+}
+
 .timeline-content {
     background: #fff;
     border: 1px solid #e0e0e0;
@@ -122,9 +147,10 @@
     margin-bottom: 5px;
 }
 
-.timeline-attribute {
+.timeline-place {
     color: #666;
     margin-bottom: 5px;
+    font-size: 14px;
 }
 
 .timeline-service {

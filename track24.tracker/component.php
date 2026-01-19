@@ -32,7 +32,7 @@ if (empty($arParams['TRACK_CODE'])) {
 
 // Формируем URL API
 $apiUrl = sprintf(
-    'https://api.track24.ru/tracking.json.php?apiKey=&code=%s&domain=%s',
+    'https://api.track24.ru/tracking.json.php?&code=%s&domain=%s',
     urlencode($arParams['TRACK_CODE']),
     urlencode($arParams['DOMAIN'])
 );
