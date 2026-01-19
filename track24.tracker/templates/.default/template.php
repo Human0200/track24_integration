@@ -27,7 +27,7 @@ $this->setFrameMode(true);
                                placeholder="Например: LC166805240CN"
                                required>
                     </div>
-                    <button type="submit" class="ui-btn ui-btn--gradient">Отследить посылку</button>
+                    <button type="submit" class="button button--dark prod-all__button">Отследить посылку</button>
                 </form>
             </div>
         <?php else: ?>
@@ -36,6 +36,21 @@ $this->setFrameMode(true);
                 <!-- Ошибка -->
                 <div class="alert alert-danger">
                     <strong>Ошибка:</strong> <?= htmlspecialchars($arResult['ERROR']) ?>
+                    
+                    <?php if (!empty($arResult['ERROR_DETAILS'])): ?>
+                        <details style="margin-top: 15px;">
+                            <summary style="cursor: pointer; font-weight: 600;">Подробная информация об ошибке</summary>
+                            <div style="margin-top: 10px; padding: 10px; background: #fff; border-radius: 4px;">
+                                <?php if (isset($arResult['ERROR_DETAILS']['http_code'])): ?>
+                                    <p><strong>HTTP код:</strong> <?= htmlspecialchars($arResult['ERROR_DETAILS']['http_code']) ?></p>
+                                <?php endif; ?>
+                                <?php if (isset($arResult['ERROR_DETAILS']['raw_response'])): ?>
+                                    <p><strong>Ответ API:</strong></p>
+                                    <pre style="background: #f5f5f5; padding: 10px; overflow-x: auto; font-size: 12px;"><?= htmlspecialchars($arResult['ERROR_DETAILS']['raw_response']) ?></pre>
+                                <?php endif; ?>
+                            </div>
+                        </details>
+                    <?php endif; ?>
                 </div>
             <?php elseif ($arResult['DATA']): ?>
                 

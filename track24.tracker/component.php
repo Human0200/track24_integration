@@ -32,7 +32,7 @@ if (empty($arParams['TRACK_CODE'])) {
 
 // Формируем URL API
 $apiUrl = sprintf(
-    'https://api.track24.ru/tracking.json.php?code=%s&domain=%s',
+    'https://api.track24.ru/tracking.json.php?apiKey=&code=%s&domain=%s',
     urlencode($arParams['TRACK_CODE']),
     urlencode($arParams['DOMAIN'])
 );
@@ -65,15 +65,27 @@ try {
     }
     
     if (!isset($data['status']) || $data['status'] !== 'ok') {
-        throw new Exception('API вернул ошибку в ответе');
+        $errorMsg = 'API вернул ошибку в ответе';
+        if (isset($data['error'])) {
+            $errorMsg .= ': ' . $data['error'];
+        }
+        if (isset($data['message'])) {
+            $errorMsg .= ' - ' . $data['message'];
+        }
+        throw new Exception($errorMsg);
     }
     
     $arResult['DATA'] = $data['data'];
     $arResult['SERVICES'] = $data['services'] ?? [];
     $arResult['DELIVERY_STAT'] = $data['deliveredStat'] ?? null;
+    $arResult['RAW_RESPONSE'] = $data; // Для отладки
     
 } catch (Exception $e) {
     $arResult['ERROR'] = $e->getMessage();
+    $arResult['ERROR_DETAILS'] = [
+        'http_code' => $httpCode ?? null,
+        'raw_response' => $response ?? null
+    ];
 }
 
 // Подключаем шаблон
