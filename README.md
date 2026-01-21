@@ -2,11 +2,11 @@
 Интеграция с сервисом отслеживания почтовых отправлений
 ```php
 <?$APPLICATION->IncludeComponent(
-    "custom:track24.tracker",
+    "leadspace:track24.tracker",
     "",
     Array(
         "TRACK_CODE" => "LC166805240CN",
-        "DOMAIN" => "tk-gocargo.ru",
+        "DOMAIN" => "",
         "SHOW_TITLE" => "Y",
         "TITLE" => "Отслеживание посылки",
         "SHOW_STATISTICS" => "Y",

@@ -208,7 +208,7 @@ $componentPath = $this->GetFolder();
     function fetchTracking(trackCode) {
         setLoading(true);
         
-        const url = 'https://api.track24.ru/tracking.json.php?code=' + 
+        const url = 'https://api.track24.ru/tracking.json.php?apiKey=<?= htmlspecialchars($arResult['API_KEY']) ?>&code=' + 
                     encodeURIComponent(trackCode) + 
                     '&domain=<?= htmlspecialchars($arResult['DOMAIN']) ?>';
         

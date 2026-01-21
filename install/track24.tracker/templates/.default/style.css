@@ -4,6 +4,24 @@
     padding: 40px 0;
 }
 
+.ui-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ui-btn:hover {
+  background-color: #0056b3;
+}
+
+.ui-btn:active {
+  transform: scale(0.98);
+}
+
 .track24-tracker__header {
     margin-bottom: 30px;
 }

@@ -1,16 +1,30 @@
 <?php
+
+use Bitrix\Main\Loader;
+use Bitrix\Main\Config\Option;
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 // Подключаем модули
-CModule::IncludeModule("iblock");
+Loader::IncludeModule("iblock");
+Loader::IncludeModule("leadspace.integrationtrack24");
+
 
 // Обработка параметров
 $arParams['TRACK_CODE'] = trim($arParams['TRACK_CODE']);
-$arParams['DOMAIN'] = trim($arParams['DOMAIN']) ?: 'tk-gocargo.ru';
+$arParams['DOMAIN'] = trim($arParams['DOMAIN']) ?: 'test.ru';
 $arParams['SHOW_TITLE'] = $arParams['SHOW_TITLE'] !== 'N' ? 'Y' : 'N';
 $arParams['TITLE'] = trim($arParams['TITLE']) ?: 'Отслеживание посылки';
 $arParams['SHOW_STATISTICS'] = $arParams['SHOW_STATISTICS'] !== 'N' ? 'Y' : 'N';
 $arParams['AUTO_UPDATE'] = intval($arParams['AUTO_UPDATE']);
+
+
+$apiKey = Option::get('leadspace.integrationtrack24', 'api_key', '');
+if (empty($apiKey)) {
+    $arResult['ERROR'] = 'API ключ не настроен. Пожалуйста, настройте модуль в административной панели.';
+    $arResult['SHOW_SETUP_MESSAGE'] = true;
+    $this->IncludeComponentTemplate();
+    return;
+}
 
 // Передаем параметры в результат
 $arResult['TRACK_CODE'] = $arParams['TRACK_CODE'];
@@ -19,6 +33,7 @@ $arResult['SHOW_TITLE'] = $arParams['SHOW_TITLE'];
 $arResult['TITLE'] = $arParams['TITLE'];
 $arResult['SHOW_STATISTICS'] = $arParams['SHOW_STATISTICS'];
 $arResult['AUTO_UPDATE'] = $arParams['AUTO_UPDATE'];
+$arResult['API_KEY'] = $apiKey; // Для отладки, можно убрать
 
 // Инициализация переменных
 $arResult['ERROR'] = '';
@@ -32,7 +47,8 @@ if (empty($arParams['TRACK_CODE'])) {
 
 // Формируем URL API
 $apiUrl = sprintf(
-    'https://api.track24.ru/tracking.json.php?&code=%s&domain=%s',
+    'https://api.track24.ru/tracking.json.php?apiKey=%s&code=%s&domain=%s',
+    urlencode($apiKey),
     urlencode($arParams['TRACK_CODE']),
     urlencode($arParams['DOMAIN'])
 );

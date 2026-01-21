@@ -8,7 +8,7 @@ $arComponentDescription = [
     "SORT" => 50,
     "PATH" => [
         "ID" => "custom",
-        "NAME" => "Пользовательские компоненты",
+        "NAME" => "LeadSpace",
     ],
 ];
 ?>
